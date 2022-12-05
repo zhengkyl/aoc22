@@ -11,5 +11,6 @@ pub fn get_input_for_day(day: u32) -> Result<Vec<String>, Error> {
         .send()?
         .text()?;
 
-    Ok(full_res.split("\n").map(|s| s.into()).collect())
+    // Remove trailing newline so result doesn't have empty string
+    Ok(full_res.trim().split("\n").map(|s| s.into()).collect())
 }
