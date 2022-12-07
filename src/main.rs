@@ -1,12 +1,12 @@
 use std::env;
 
-use aoc22::{d1, d2, d3, util::get_input_for_day};
+use aoc22::{d1, d2, d3, d4, util::get_input_for_day};
 
-fn main() -> Result<(), reqwest::Error> {
+fn main() {
     dotenvy::dotenv().unwrap();
 
-    let part1 = [d1::part1, d2::part1, d3::part1];
-    let part2 = [d1::part2, d2::part2, d3::part2];
+    let part1 = [d1::part1, d2::part1, d3::part1, d4::part1];
+    let part2 = [d1::part2, d2::part2, d3::part2, d4::part2];
 
     let day: usize = env::args()
         .skip(1)
@@ -15,7 +15,7 @@ fn main() -> Result<(), reqwest::Error> {
         .next()
         .unwrap();
 
-    let data = get_input_for_day(day.try_into().unwrap())?;
+    let data = get_input_for_day(day.try_into().unwrap());
 
     println!("Day {}", day);
     if day <= part1.len() {
@@ -24,6 +24,4 @@ fn main() -> Result<(), reqwest::Error> {
     if day <= part2.len() {
         println!("\tPart 2: {}", part2[day - 1](&data));
     }
-
-    Ok(())
 }
