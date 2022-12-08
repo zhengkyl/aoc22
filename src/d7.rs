@@ -88,8 +88,8 @@ mod tests {
         assert_eq!(part1(SAMPLE), 95437);
     }
 
-    // #[test]
-    // fn part2_sample() {
-    //     assert_eq!(part2(SAMPLE), 19);
-    // }
+    #[test]
+    fn part2_sample() {
+        assert_eq!(part2(SAMPLE), 24933642);
+    }
 }
