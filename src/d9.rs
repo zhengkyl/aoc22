@@ -1,7 +1,7 @@
 use std::collections::HashSet;
 
 pub fn solve<S: AsRef<str>, const N: usize>(input: &[S]) -> u32 {
-    let mut pos = vec![(0, 0); N];
+    let mut pos: Vec<(i32, i32)> = vec![(0, 0); N];
 
     let mut visited = HashSet::new();
 
@@ -23,24 +23,12 @@ pub fn solve<S: AsRef<str>, const N: usize>(input: &[S]) -> u32 {
             pos[N - 1].1 += dir.1;
 
             for k in (0..N - 1).rev() {
-                if ((pos[k + 1].0 - pos[k].0) as i32).abs() <= 1
-                    && ((pos[k + 1].1 - pos[k].1) as i32).abs() <= 1
-                {
+                if (pos[k + 1].0 - pos[k].0).abs() <= 1 && (pos[k + 1].1 - pos[k].1).abs() <= 1 {
                     break;
                 }
 
-                if pos[k + 1].0 > pos[k].0 {
-                    pos[k].0 += 1;
-                }
-                if pos[k + 1].0 < pos[k].0 {
-                    pos[k].0 -= 1;
-                }
-                if pos[k + 1].1 > pos[k].1 {
-                    pos[k].1 += 1;
-                }
-                if pos[k + 1].1 < pos[k].1 {
-                    pos[k].1 -= 1;
-                }
+                pos[k].0 += (pos[k + 1].0 - pos[k].0).signum();
+                pos[k].1 += (pos[k + 1].1 - pos[k].1).signum();
 
                 if k == 0 {
                     visited.insert(pos[k]);
