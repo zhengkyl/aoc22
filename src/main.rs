@@ -1,9 +1,10 @@
 use std::env;
 
-use aoc22::{d1, d2, d3, d4, d5, d6, d7, d8, d9, util::get_input_for_day};
+use aoc22::{d1, d10, d2, d3, d4, d5, d6, d7, d8, d9, util::get_input_for_day};
 
 enum Sol {
     U32(fn(&[String]) -> u32),
+    I32(fn(&[String]) -> i32),
     STR(fn(&[String]) -> String),
 }
 
@@ -20,6 +21,7 @@ fn main() {
         Sol::U32(d7::part1),
         Sol::U32(d8::part1),
         Sol::U32(d9::part1),
+        Sol::I32(d10::part1),
     ];
     let part2 = [
         Sol::U32(d1::part2),
@@ -31,6 +33,7 @@ fn main() {
         Sol::U32(d7::part2),
         Sol::U32(d8::part2),
         Sol::U32(d9::part2),
+        Sol::STR(d10::part2),
     ];
 
     let day: usize = env::args()
@@ -42,19 +45,21 @@ fn main() {
 
     let data = get_input_for_day(day.try_into().unwrap());
 
-    println!("Day {}", day);
+    println!("Day {}\n", day);
     if day <= part1.len() {
         let sol = match part1[day - 1] {
             Sol::U32(sol) => sol(&data).to_string(),
+            Sol::I32(sol) => sol(&data).to_string(),
             Sol::STR(sol) => sol(&data),
         };
-        println!("\tPart 1: {}", sol);
+        println!("Part 1:\n{}\n", sol);
     }
     if day <= part2.len() {
         let sol = match part2[day - 1] {
             Sol::U32(sol) => sol(&data).to_string(),
+            Sol::I32(sol) => sol(&data).to_string(),
             Sol::STR(sol) => sol(&data),
         };
-        println!("\tPart 2: {}", sol);
+        println!("Part 2:\n{}\n", sol);
     }
 }
