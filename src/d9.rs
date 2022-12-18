@@ -1,6 +1,6 @@
 use std::collections::HashSet;
 
-pub fn solve<S: AsRef<str>, const N: usize>(input: &[S]) -> u32 {
+fn solve<S: AsRef<str>, const N: usize>(input: &[S]) -> u32 {
     let mut pos: Vec<(i32, i32)> = vec![(0, 0); N];
 
     let mut visited = HashSet::new();

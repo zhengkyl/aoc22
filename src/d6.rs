@@ -1,6 +1,6 @@
 use std::ops::ControlFlow;
 
-pub fn solve<S: AsRef<str>, const W: usize>(input: &[S]) -> u32 {
+fn solve<S: AsRef<str>, const W: usize>(input: &[S]) -> u32 {
     let x = input[0]
         .as_ref()
         .as_bytes()

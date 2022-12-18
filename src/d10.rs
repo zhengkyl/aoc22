@@ -1,4 +1,4 @@
-pub fn get_values<S: AsRef<str>>(input: &[S]) -> Vec<i32> {
+fn get_values<S: AsRef<str>>(input: &[S]) -> Vec<i32> {
     let mut prev_value = 1;
 
     let mut values = vec![1];
