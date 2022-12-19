@@ -1,6 +1,6 @@
 use std::env;
 
-use aoc22::{d1, d10, d11, d12, d2, d3, d4, d5, d6, d7, d8, d9, util::get_input_for_day};
+use aoc22::{d1, d10, d11, d12, d13, d2, d3, d4, d5, d6, d7, d8, d9, util::get_input_for_day};
 
 enum Sol {
     U32(fn(&[String]) -> u32),
@@ -25,6 +25,7 @@ fn main() {
         Sol::I32(d10::part1),
         Sol::U64(d11::part1),
         Sol::U32(d12::part1),
+        Sol::U32(d13::part1),
     ];
     let part2 = [
         Sol::U32(d1::part2),
@@ -39,6 +40,7 @@ fn main() {
         Sol::STR(d10::part2),
         Sol::U64(d11::part2),
         Sol::U32(d12::part2),
+        Sol::U32(d13::part2),
     ];
 
     let day: usize = env::args()
